@@ -76,6 +76,11 @@ After you login to Jenkins,
       
 <img width="1291" alt="Screenshot 2023-02-01 at 10 56 25 AM" src="https://user-images.githubusercontent.com/43399466/215959008-3ebca431-1f14-4d81-9f12-6bb232bfbee3.png">
 
+**Use the below command in the instance:**
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
 ### Click on Install suggested plugins
 
 <img width="1291" alt="Screenshot 2023-02-01 at 10 58 40 AM" src="https://user-images.githubusercontent.com/43399466/215959294-047eadef-7e64-4795-bd3b-b1efb0375988.png">
