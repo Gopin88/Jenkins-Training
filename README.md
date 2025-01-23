@@ -132,5 +132,98 @@ http://<ec2-instance-public-ip>:8080/restart
 The docker agent configuration is now successful.
 
 
+----------------------------------------------------->
+
+The log message indicates that the version of Java currently installed on your system is **Java 11**, but Jenkins requires **Java 17 or Java 21** to run properly.
+
+### To fix this issue:
+
+1. **Install Java 17 or Java 21**:
+   Since Jenkins supports Java 17 and Java 21, let's install one of these versions. Here’s how to install Java 17:
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install openjdk-17-jdk
+   ```
+
+2. **Set Java 17 as the default**:
+   After installation, you need to set Java 17 as the default Java version on your system:
+
+   ```bash
+   sudo update-alternatives --config java
+   ```
+
+   This will display a list of installed Java versions. Enter the number corresponding to Java 17 and press Enter.
+
+3. **Verify the Java version**:
+   After setting Java 17 as the default, verify that it's active:
+
+   ```bash
+   java -version
+   ```
+
+   It should now show Java 17 as the default version.
+
+4. **Restart Jenkins**:
+   Now that you have the correct Java version installed and set, try restarting the Jenkins service:
+
+   ```bash
+   sudo systemctl restart jenkins
+   ```
+
+5. **Check Jenkins status**:
+   After restarting Jenkins, check if the service is running successfully:
+
+   ```bash
+   sudo systemctl status jenkins
+   ```
+
+This should resolve the issue with Jenkins not starting due to the Java version mismatch.
+
+
+To remove Java 11 from your system after installing Java 17, you can follow these steps:
+
+### 1. **Uninstall Java 11**:
+   You can remove Java 11 using the following command:
+
+   ```bash
+   sudo apt-get remove --purge openjdk-11-jdk
+   ```
+
+   This will uninstall the Java 11 package.
+
+### 2. **Verify Java Versions**:
+   After uninstalling Java 11, check which versions of Java are still available on your system:
+
+   ```bash
+   update-alternatives --config java
+   ```
+
+   Make sure Java 17 is still selected as the default. If it’s not, you can select it using the command above.
+
+### 3. **Clean Up Unused Packages**:
+   It’s a good idea to clean up any residual files from the uninstallation to free up space:
+
+   ```bash
+   sudo apt-get autoremove
+   sudo apt-get clean
+   ```
+
+This should remove Java 11 and leave you with only the version you want (Java 17, in this case).
+
+### 4. **Verify Java Version**:
+   Finally, check that your system is now using the correct Java version:
+
+   ```bash
+   java -version
+   ```
+
+It should now show Java 17 (or whichever version you installed) as the active version.
+
+
+
+
+
+
 
 
