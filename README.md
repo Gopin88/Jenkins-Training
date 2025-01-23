@@ -223,6 +223,7 @@ It should now show Java 17 (or whichever version you installed) as the active ve
 
 
 
+![image](https://github.com/user-attachments/assets/3198895e-08c0-4627-b717-eff8a0296248)
 
 
 
